@@ -629,7 +629,7 @@ threading.Thread(target=check_offline_devices, daemon=True).start()
 load_registered_devices_from_file()
 
 if __name__ == '__main__':
-    port = 1313
+    port = int(os.environ.get('PORT', 1313))
     print(f"Server starting on port {port}")
     print(f"Server IP address: {get_server_ip_address()}")
     app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
