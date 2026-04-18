@@ -9,7 +9,7 @@ import threading
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['UPLOAD_FOLDER'] = 'upload'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -23,8 +23,8 @@ device_sensor_data = {}
 device_chart_data = {}
 heartbeat_timeout = 20000
 
-valid_username = os.environ.get('ADMIN_USER', 'minhhoangcdt')
-valid_password = os.environ.get('ADMIN_PASS', '13032001Jr@')
+valid_username = os.environ.get('ADMIN_USER')
+valid_password = os.environ.get('ADMIN_PASS')
 
 
 def get_server_ip_address():
